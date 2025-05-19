@@ -1,0 +1,80 @@
+.onboarding_container {
+  background: linear-gradient(to bottom, #F8F5FF 6%, #EEE5FF 98%) !important;
+  height: 100vh;
+}
+
+.onboarding_login {
+  margin: 20px auto;
+  margin-top: 50px;
+
+}
+
+.onboarding_action {
+  display: flex;
+  align-items: center;
+  margin: 0px auto;
+  margin-top: 50px;
+  width: 55%;
+  column-gap: 25%;
+}
+
+.back_bottom {
+    background-color: #D0BCFF;
+    display: flex;
+    width: 35px;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.stepper-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 12px;
+}
+
+.circle {
+  width: 54px;
+  height: 4px;
+  background-color: #E2E2E2;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle.active,
+.circle.completed {
+  color: white;
+  background-color: var(--primary-color);
+}
+
+.onboarding_login_logo {
+  text-align: center;
+}
+
+.onboarding_login_logo p {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.veriication_container,
+.name_container,
+.interest_container,
+.moreinfo_container {
+  margin: 10px auto;
+  width: 37%;
+  padding: 35px;
+}
+
+
+.hubby_container {
+  margin: 10px auto;
+  width: 45%;
+  padding: 35px;
+}

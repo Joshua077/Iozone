@@ -1,0 +1,28 @@
+.chat_navbar{
+    /* position: fixed; */
+    top: 0;
+    background-color: var(--primary-color);
+    border: 0px;
+    height: 30px;
+    padding: 25px 0px;
+    color: white;
+    z-index: 200;
+    width: 100%; 
+}
+
+.chat_navbar_content{
+    margin: 0px auto;
+    width:90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat_navbar_logo img{
+width: 100px;
+height: 25px;
+}
+
+
+
+

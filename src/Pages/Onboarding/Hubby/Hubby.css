@@ -1,0 +1,65 @@
+.hubby_content{
+    text-align: center;
+
+}
+
+.hubby_content h2{
+    font-weight: 500;
+    font-size: 21px;
+
+}
+
+.hubby_content p{
+    line-height: 27px;
+    margin-top: 19px;
+    font-size: 15px;
+}
+
+.hubby_content button{
+    color: white;
+    background-color: var(--primary-color);
+    width: 40%;
+    margin-top: 41px;
+    padding: 12px;
+    font-size: 18px;
+    border: 0px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.choosen_content{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+column-gap: 12px;
+margin-top: 61px;
+row-gap: 8px;
+height: 324px;
+}
+
+.choosen_content div{
+    width: fit-content;
+    border-radius: 12px;
+    /* height: 21px; */
+    padding: 7px 12px;
+}
+.hubby-button {
+    background-color: transparent !important;
+    border: 0.62px solid var(--text-color) !important;
+    color: var(--text-color) !important; /* Optional: Add white text color for better visibility */
+    padding: 8px 16px;
+    margin: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .hubby-button.selected {
+    background-color:transparent !important;
+    border:  1px solid var(--primary-color) !important;
+    color: var(--primary-color) !important;
+  }
+  
+  .hubby-button:hover {
+    opacity: 0.8;
+  }

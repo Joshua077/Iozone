@@ -1,0 +1,75 @@
+.modal_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--image-overlay);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2345;
+}
+
+.notification_modal_container ,.location_modal_container,
+.registration_modal_container ,
+.premium_modal_container,
+.affection_modal_container, .profile_modal_container{
+    background-color: white;
+    width: 564px;
+    height: 356px;
+    padding: 3% 0%;
+    border-radius: 6px;
+}
+.profile_modal_container{
+    background: linear-gradient(to bottom, #F8F5FF 6%, #EEE5FF 98%) !important ;
+}
+
+.notification_modal_content ,.location_modal_content,
+.registration_modal_content ,
+.premium_modal_content,
+.affection_modal_content ,
+.profile_modal_content{
+    margin: 0px auto;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.notification_modal_content h2 ,.location_modal_content h2,
+.registration_modal_content h2,
+.premium_modal_content h2,
+.affection_modal_content h2  ,
+.profile_modal_content h2{
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.notification_modal_content p ,.location_modal_content p,
+.registration_modal_content p,
+.premium_modal_content p,
+.affection_modal_content p,
+.profile_modal_content p {
+    font-weight: 300;
+    font-size: 18px;
+    margin-top: 18px;
+}
+
+.notification_modal_content button , .location_modal_content button, 
+.registration_modal_content button,
+.premium_modal_content button,
+.affection_modal_content button ,
+.profile_modal_content button {
+   margin-top: 56px;
+   width: 100%;
+   color: white ;
+   background-color: var(--primary-color);
+   border: 0px;
+   border-radius: 5px;
+   padding: 14px;
+   font-size: 15px;
+}

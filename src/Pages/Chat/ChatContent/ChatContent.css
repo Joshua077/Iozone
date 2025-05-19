@@ -1,0 +1,146 @@
+.chatContent_container{
+    display: flex;
+    height: 100%;
+}
+
+.chatContent_userChat{
+  width:70%;
+  display: flex;
+  flex-direction: column;
+  border-left: 0.1px solid var(--text-color);
+  
+}
+.chatContent_userChat_top{
+    flex: 1;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+    column-gap: 31px;
+    border-bottom: 0.4px solid var(--text-color);
+}
+
+.chatContent_userChat_top_image_container{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.chatContent_userChat_top p{
+color: var(--text-color);
+font-weight: 600;
+
+}
+.chatContent_userChat_top_image_container img{
+    width: 100%;
+    height: 100%;
+}
+
+.chatContent_userChat_center{
+    flex: 11;
+}
+
+.chatContent_userChat_bottom{
+    flex: 1;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+    column-gap: 31px;
+    border-top: 0.1px solid var(--text-color);
+    border-left: 0.1px solid var(--text-color);
+
+}
+
+.chatContent_userChat_bottom input{
+    width: 50%;
+    outline: none;
+    border: 0px;
+}
+.chatContent_userDetails{
+    width:30%;
+  background-color: white;
+  border-left: 0.1px solid var(--text-color);
+
+}
+
+
+.chatContent_container .image_container{
+    width: 100%;
+    height: 300px;
+}
+
+.chatContent_container .image_container img{
+    width: 100%;
+    height: 100%;
+}
+
+.qw{
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    padding: 15px 30px;
+    border-bottom: 0.2px solid rgb(148, 141, 141);
+}
+
+.qw h3{
+    font-size: 25px;
+    font-weight: 800;
+}
+
+
+.er{
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    padding: 15px 30px;
+    border-bottom: 0.2px solid rgb(148, 141, 141);  
+}
+
+.er h3{
+
+    font-size: 15px;
+    font-weight: 800;
+    margin-top: 16px;
+}
+
+.BASIC{
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    padding: 15px 30px;
+    border-bottom: 0.2px solid rgb(148, 141, 141);   
+}
+.ty{
+    display: flex;
+    column-gap: 12px;
+    flex-wrap: wrap;
+    row-gap: 12px;
+}
+
+.ty div{
+
+    border: 1px solid black;
+    width: fit-content;
+    padding: 5px 11px;
+    border-radius: 21px;
+    font-size: 11px;
+}
+
+.UNMATCH, .SUMMARY{
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    padding: 15px 30px;
+    border-bottom: 0.2px solid rgb(148, 141, 141); 
+    text-align: center;  
+}
+
+.UNMATCH h3, .SUMMARY h3{
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.UNMATCH span, .SUMMARY span{
+    color: var(--text-color);
+}

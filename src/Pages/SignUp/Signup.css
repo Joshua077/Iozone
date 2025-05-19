@@ -1,0 +1,16 @@
+.signUp_container{
+    margin: 0px auto;
+    width:100%;
+    height: 100vh;
+    color:var(--text-color);
+    background: linear-gradient(to bottom, #F8F5FF 30%, #BC72FB 170%) !important ;
+}
+
+.signUp_content{
+    margin: 5% auto;
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

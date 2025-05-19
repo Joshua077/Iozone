@@ -1,0 +1,43 @@
+.verification_content{
+    /* text-align: center; */
+
+}
+
+.verification_content h2{
+    font-weight: 500;
+    font-size: 21px;
+    text-align: center;
+}
+
+.verification_content p{
+    line-height: 27px;
+    margin-top: 19px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.verification_content button{
+    color: white;
+    background-color: var(--primary-color);
+    width: 60%;
+    margin-top: 31px;
+    padding: 12px;
+    font-size: 18px;
+    border: 0px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.otp_folder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 31px;
+}
+
+.otp_folder span{
+font-size: 10px;
+color: var(--primary-color);
+cursor: pointer;
+}

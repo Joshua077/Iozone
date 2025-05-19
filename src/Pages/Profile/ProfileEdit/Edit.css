@@ -1,0 +1,123 @@
+.edit_container {
+    margin: 20px auto;
+    width: 38%;
+
+}
+
+.edit_container .preview {
+    width: 90%;
+    border: 0.5px solid #DCDCDC;
+    padding: 8px 12px;
+    border-radius: 12px;
+}
+
+.edit_container .bio {
+    margin: 0px auto;
+    width: 93%;
+    margin-top: 20px;
+}
+
+
+.edit_container .bio h2 {
+    font-size: 18px;
+}
+
+.edit_container .bio p {
+    font-size: 13px;
+}
+
+
+.edit_container .interest {
+    margin: 0px auto;
+    width: 93%;
+    margin-top: 20px;
+   
+}
+
+.edit_container .interest h2{
+    font-size: 18px;
+}
+
+.edit_container .interest div{
+width: 80%;
+display: flex;
+flex-wrap: wrap;
+column-gap: 19px;
+margin-top: 21px;
+font-size: 12px;
+row-gap: 12px;
+}
+
+.edit_container .interest div span{
+border: 0.4px solid black;
+padding: 4px 12px;
+border-radius: 8px;
+}
+
+.info{
+    margin: 0px auto;
+    width: 93%;
+    margin-top: 20px;
+}
+
+.info h2{
+    font-size: 18px;
+}
+
+.edit_flex1{
+    display: flex;
+  
+    justify-content: space-between;
+    padding: 12px 0px; 
+}
+.edit_flex{
+    display: flex;
+    justify-content: space-between;
+    padding: 21px 0px;
+    border-bottom: 0.2px solid #767676;
+}
+
+.edit_flex p{
+    font-size: 14px;
+}
+
+.edit_flex span{
+    font-size: 11px;
+    color: #767676;
+ 
+   
+}
+
+.edit_container .instagram{
+    margin: 100px auto;
+    width: 93%;
+    margin-bottom: 40px;
+ 
+}
+
+.edit_container .instagram h2{
+    font-size: 18px;
+}
+
+.edit_container .instagram p{
+    font-size: 14px;
+    margin-top: 12px;
+    font-weight: 400;
+}
+
+.edit_container .instagram button{
+    width: 100%;
+    margin-top: 29px;
+    padding: 16px;
+    border: 0px;
+    border-radius: 5px;
+    color: white;
+    background-color: var(--primary-color);
+
+}
+
+.edit_container .flex11{
+     display: flex;
+     align-items: center;
+     column-gap: 5px;
+}
