@@ -20,11 +20,11 @@ export default function Edit() {
     return (
         <div
             className='edit_container'
-        >
+        > test
             <div
                 className='preview'
             >
-                <p style={{}}>Proview profile</p>
+                <p style={{}}>Preview profile</p>
             </div>
             <div
                 className='bio'

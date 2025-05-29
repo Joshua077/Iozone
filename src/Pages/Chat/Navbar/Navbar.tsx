@@ -2,6 +2,7 @@ import React from 'react'
 import Logo from '../../../Assets/Logo.png'
 import { useNavigate } from 'react-router-dom'
 import './Navbar.css'
+import profileImg from '../../../Assets/Img.png'
 
 export default function Navbar() {
 
@@ -17,9 +18,13 @@ export default function Navbar() {
             <div className='chat_navbar_logo'>
                 <img src={Logo} alt="Logo" />
             </div>
-            <div>
-            
-                <p>TEmi Bankole</p>
+            <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+            }}>
+                <img src={profileImg} alt="" />
+                <p>Temi Bankole</p>
             </div>
         </div>
     

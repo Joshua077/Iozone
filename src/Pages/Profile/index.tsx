@@ -25,6 +25,10 @@ export default function Profile() {
     navigate('/profile/referral')
    }
 
+//    const handleReferralProfile = () =>{
+//     navigate('/profile/referralProfile')
+//    }
+
    const handleEdit = () =>{
     navigate('/profile')
    }
@@ -102,7 +106,7 @@ export default function Profile() {
                 <div className='profile_navbar_container'
                  onClick={()=>console.log('fffffvvvvvff')}
                 >
-                    <p  style={{textAlign:'center'}}>User Profile</p>
+                    <p  style={{textAlign:'center'}}>Edit profile</p>
                 </div>
                 <div className='Profile_outlet'
                 

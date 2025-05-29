@@ -94,7 +94,7 @@ const navigate = useNavigate()
                         <div className='chat_reels_content'>
                             {data?.map((image, index) => (
                                 <div>
-                                    <img src={image?.src} />
+                                    <img src={image?.src} style={{objectFit:'contain'}} />
                                 </div>
                             ))}
                         </div>
