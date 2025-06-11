@@ -4,6 +4,7 @@ import Chat from '../Pages/Chat';
 import ChatContent from '../Pages/Chat/ChatContent/ChatContent';
 import Filter from '../Pages/Chat/Filter/Filter';
 import Likes from '../Pages/Chat/Likes/Likes';
+import Short from '../Pages/Chat/Short/Short';
 import UserChat from '../Pages/Chat/User/UserChat';
 import LandingPage from '../Pages/LandingPage';
 import Login from '../Pages/Login/Login';
@@ -39,6 +40,7 @@ function App() {
             <Route index element={<Likes />} />
             <Route path="filter" element={<Filter />} />
             <Route  path=":chatId" element={<ChatContent />} />
+            <Route  path="short" element={<Short />} />
           </Route>
 
           <Route path="chats" element={<UserChat />} />

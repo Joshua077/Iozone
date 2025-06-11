@@ -14,7 +14,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import TuneIcon from '@mui/icons-material/Tune';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import YoutubeSearchedForIcon from '@mui/icons-material/YoutubeSearchedFor';
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Likes() {
 
@@ -100,34 +100,36 @@ export default function Likes() {
         <div className='likes_container'>
 
             <div className='logo'>
-                <div style={{background:"#4A4A4A", padding:'6px 8px', borderRadius:'50%', cursor:'pointer'}}
-                                onClick={() => navigate('/chat/filter')}
+                <div style={{ background: "#4A4A4A", padding: '6px 8px', borderRadius: '50%', cursor: 'pointer' }}
+                    onClick={() => navigate('/chat/filter')}
                 >
-                    <TuneIcon  style={{color:"white", fontSize:'15px'}}/>
+                    <TuneIcon style={{ color: "white", fontSize: '15px' }} />
                 </div>
 
-                <div style={{background:"#4A4A4A", padding:'6px 8px', borderRadius:'50%', cursor:'pointer'}}>
-                    <YoutubeSearchedForIcon style={{color:"white",fontSize:'15px'}}/>
+                <div style={{ background: "#4A4A4A", padding: '6px 8px', borderRadius: '50%', cursor: 'pointer' }}
+                    onClick={() => navigate('/chat/short')}
+                >
+                    <YoutubeSearchedForIcon style={{ color: "white", fontSize: '15px' }} />
                 </div>
 
-                <div style={{background:"#BC72FB", padding:'6px 8px', borderRadius:'50%', cursor:'pointer'}}
-                onClick={() => navigate('/chat')}
+                <div style={{ background: "#BC72FB", padding: '6px 8px', borderRadius: '50%', cursor: 'pointer' }}
+                    onClick={() => navigate('/chat')}
                 >
-                    <AutoAwesomeIcon  style={{color:"white",fontSize:'15px'}}/>
+                    <AutoAwesomeIcon style={{ color: "white", fontSize: '15px' }} />
                 </div>
             </div>
             <div className='header'>
-                <div className='arrow' 
-                style={{
-                    background: '#D0BCFF',
-                    width: '25px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: '25px',
-                    // paddingLeft: '3px',
-                    borderRadius: '49%'
-                }}
+                <div className='arrow'
+                    style={{
+                        background: '#D0BCFF',
+                        width: '25px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: '25px',
+                        // paddingLeft: '3px',
+                        borderRadius: '49%'
+                    }}
                 >
                     <KeyboardArrowLeftIcon />
                 </div>

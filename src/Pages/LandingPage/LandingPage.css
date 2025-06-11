@@ -7,7 +7,8 @@
     padding: 25px 0px;
     color: white;
     z-index: 200;
-    width: 100%; 
+    width: 100%;    
+    overflow: hidden;
 }
 
 .landingPage_navbar_content{
@@ -72,6 +73,10 @@ height: 30px;
     top: 60%;
     left: 7%;
     transform: translateY(-40%);
+}
+
+h1{
+    overflow: hidden;
 }
 
 

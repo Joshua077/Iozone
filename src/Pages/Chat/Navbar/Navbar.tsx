@@ -22,7 +22,9 @@ export default function Navbar() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '10px',
-            }}>
+                // cursor: 'pointer'
+            }}
+            onClick={() => navigate('/profile')}>
                 <img src={profileImg} alt="" />
                 <p>Temi Bankole</p>
             </div>
