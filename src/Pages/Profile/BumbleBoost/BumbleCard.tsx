@@ -10,14 +10,17 @@ export default function BumbleCard() {
 
             <div className='bumble_boost_content'>
                 <div className='bumble_boost_text_container'>
-                    <div>
-                        <h2 style={{fontSize:"13px", marginBottom:"12px"}}>Get Affections</h2>
-                    </div>
-
-                    <div>
-                        <p>You will be charged ₦6,000.00 every 6
-                            months. Cancel anytime</p>
-                    </div>
+                    <h2>Get Affections</h2>
+                   <div className='self_boost_text'>
+                     <ul>
+                        <li><span className="heart-icon">💜</span> Send targeted likes for a memorable first impression and genuine affection.</li>
+                        <li><span className="super-icon">🖤</span> Affections are super likes</li>
+                    </ul>
+                    <p className="footer-note">
+                        <span className="billing-icon">☰</span> You will be charged ₦6,000.00 every 6 months. Cancel anytime
+                    </p>
+                   </div>
+                    <div></div>
                     <div>
 
                     </div>

@@ -21,6 +21,20 @@ export default function Chat() {
             verrified: true
         },
         {
+            src: 'https://i.ytimg.com/vi/pLqipJNItIo/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBkklsyaw9FxDmMKapyBYCn9tbPNQ',
+            lastMessage: 'How are U',
+            id: '1',
+            name: 'Funmi',
+            verrified: true
+        },
+        {
+            src: 'https://i.ytimg.com/vi/pLqipJNItIo/hqdefault.jpg?sqp=-oaymwEYCNIBEHZIVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBkklsyaw9FxDmMKapyBYCn9tbPNQ',
+            lastMessage: 'How are U',
+            id: '1',
+            name: 'Funmi',
+            verrified: true
+        },
+        {
             src: 'https://i.ytimg.com/vi/_Uu12zY01ts/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLCpX6Jan2rxrCAZxJYDXppTP4MoQA',
             lastMessage: 'How are U',
             id: '2',
@@ -171,11 +185,12 @@ export default function Chat() {
                                 <p>Likes and matches</p>
                                 <div className='chat_reels_content'>
                                     {data.map((image, index) => (
-                                        <div key={index}>
+                                        <div key={index} className='chat_reels_content_image'>
                                             <img src={image.src} alt='profile' style={{ objectFit: 'cover' }} />
                                         </div>
                                     ))}
                                 </div>
+                                
                             </div>
 
                             <div className='chat_lits'>
