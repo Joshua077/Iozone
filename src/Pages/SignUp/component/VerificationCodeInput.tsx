@@ -1,16 +1,21 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from "react";
+import { useSignUp, useAuth } from "@clerk/clerk-react";
 
 export function VerificationCodeInput({
   length = 6,
-  onComplete,
+  onVerified,
 }: {
   length?: number;
-  onComplete?: (code: string) => void;
+  onVerified?: () => void;
 }) {
-  const [values, setValues] = useState<string[]>(Array(length).fill(''));
+  const { signUp } = useSignUp();
+  // const { setActive } = useAuth();
+
+  const [values, setValues] = useState<string[]>(Array(length).fill(""));
+  const [loading, setLoading] = useState(false);
   const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
 
-  const handleVerificationChange = (index: number, value: string) => {
+  const handleVerificationChange = async (index: number, value: string) => {
     if (!/^\d*$/.test(value)) return;
 
     const newValues = [...values];
@@ -21,20 +26,43 @@ export function VerificationCodeInput({
       inputsRef.current[index + 1]?.focus();
     }
 
-    const code = newValues.join('');
-    if (code.length === length && !newValues.includes('')) {
-      onComplete?.(code);
+    const code = newValues.join("");
+    if (code.length === length && !newValues.includes("")) {
+      try {
+        setLoading(true);
+        const result = await signUp?.attemptVerification({
+          code,
+          strategy: "email_code", // ✅ REQUIRED
+        });
+
+        if (result?.status === "complete") {
+          await (signUp as any)?.setActive?.({
+            session: result.createdSessionId,
+          }); // ✅ Use signUp.setActive
+          onVerified?.();
+        } else {
+          alert("Verification failed. Try again.");
+        }
+      } catch (error) {
+        console.error("Verification error:", error);
+        alert("Invalid verification code.");
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
-  const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Backspace' && !values[index] && index > 0) {
+  const handleKeyDown = (
+    index: number,
+    e: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    if (e.key === "Backspace" && !values[index] && index > 0) {
       inputsRef.current[index - 1]?.focus();
     }
   };
 
   return (
-    <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+    <div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
       {values.map((value, index) => (
         <input
           key={index}
@@ -45,14 +73,15 @@ export function VerificationCodeInput({
           value={value}
           onChange={(e) => handleVerificationChange(index, e.target.value)}
           onKeyDown={(e) => handleKeyDown(index, e)}
+          disabled={loading}
           style={{
-            width: '40px',
-            height: '50px',
-            fontSize: '24px',
-            textAlign: 'center',
-            borderRadius: '8px',
-            border: '1px solid #ccc',
-            margin: '20px 0',
+            width: "40px",
+            height: "50px",
+            fontSize: "24px",
+            textAlign: "center",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            backgroundColor: loading ? "#f2f2f2" : "white",
           }}
         />
       ))}

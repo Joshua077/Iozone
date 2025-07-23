@@ -49,3 +49,9 @@
 .dropdown-item:hover {
   background-color: #f0f0f0;
 }
+
+
+.logbtn {
+  color: var(--primary-color);
+  text-decoration: none;
+}

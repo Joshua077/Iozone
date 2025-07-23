@@ -135,6 +135,7 @@ export default function ChatContent() {
                 <div className='chatContent_userChat_center'>
          
                 </div>
+                
                 <div className='chatContent_userChat_bottom'>
                     <input placeholder='Type a message' />
                 </div>

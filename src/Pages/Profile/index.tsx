@@ -5,8 +5,13 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import BoostModal from '../../Components/Modal/Profile';
 import Affection from '../../Components/Modal/Affection';
 import Premium from '../../Components/Modal/Premium';
+import { useProfile } from '../../hooks/useProfile';
+
+
 
 export default function Profile() {
+
+    const { profile, loading, updateProfile } = useProfile();
 
     console.log(useLocation()?.pathname)
 
