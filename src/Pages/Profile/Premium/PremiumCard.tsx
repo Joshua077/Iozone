@@ -11,14 +11,23 @@ export default function PreniumCard() {
                
             <div className='self_boost_content'>
                 <div className='self_boost_text_container'>
-                    <div>
-                        <h2 style={{fontSize:"13px", marginBottom:"12px"}}>Upgrade To Prenium</h2>
-                    </div>
-
-                    <div>
-                        <p >You will be charged ₦6,000.00 every 6
-                            months. Cancel anytime</p>
-                    </div>
+                    <h2>Upgrade to premium</h2>
+                   <div className='self_boost_text'>
+                     <ul>
+                        <li><span className="super-icon">🖤</span> Match and Chat</li>
+                        <li><span className="super-icon">🖤</span> 1 Free Self Boost & Affections</li>
+                        <li><span className="super-icon">🖤</span> Get matches all over the world</li>
+                        <li><span className="super-icon">🖤</span> Read Receipt</li>
+                        <li><span className="super-icon">🖤</span> See who like you</li>
+                        <li><span className="super-icon">🖤</span> Rewind</li>
+                        <li><span className="super-icon">🖤</span> Privacy</li>
+                        <li><span className="super-icon">🖤</span> Ad-Free Experience</li>
+                    </ul>
+                    <p className="footer-note">
+                        <span className="billing-icon">☰</span> You will be charged ₦6,000.00 every 6 months. Cancel anytime
+                    </p>
+                   </div>
+                    <div></div>
                     <div>
 
                     </div>

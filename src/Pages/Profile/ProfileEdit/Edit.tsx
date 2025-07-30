@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Edit.css';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import SquareFootIcon from '@mui/icons-material/SquareFoot';
@@ -17,14 +17,60 @@ import { styled } from '@mui/material/styles';
 import Switch, { SwitchProps } from '@mui/material/Switch';
 
 export default function Edit() {
+
+    const [images, setImages] = useState<string[]>([]);
+
+    const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            const newImage = URL.createObjectURL(file);
+            setImages([...images, newImage]);
+        }
+    };
+
+
+    const removeImage = (index: number) => {
+        const updated = [...images];
+        updated.splice(index, 1);
+        setImages(updated);
+    };
+
     return (
         <div
             className='edit_container'
-        >
+        >  <div className="image-uploader-container">
+                {images.length > 0 && (
+                    <div className="main-image-wrapper">
+                        <img src={images[0]} alt="Main" className="main-image" />
+                        <button className="close-btn" onClick={() => removeImage(0)}>×</button>
+                    </div>
+                )}
+
+                {images.slice(1).map((img, index) => (
+                    <div key={index} className="thumb-wrapper">
+                        <img src={img} alt={`Thumb ${index}`} className="thumbnail" />
+                        <button className="close-btn-small" onClick={() => removeImage(index + 1)}>×</button>
+                    </div>
+                ))}
+
+                {images.length < 6 &&
+                    [...Array(6 - images.length)].map((_, index) => (
+                        <label key={index} className="add-circle">
+                            <span>+</span>
+                            <input
+                                type="file"
+                                accept="image/*"
+                                onChange={handleImageUpload}
+                            />
+                        </label>
+                    ))}
+            </div>
+
+
             <div
                 className='preview'
             >
-                <p style={{}}>Proview profile</p>
+                <p style={{}}>Preview profile</p>
             </div>
             <div
                 className='bio'

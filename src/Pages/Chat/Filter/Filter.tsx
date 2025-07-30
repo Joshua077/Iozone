@@ -69,8 +69,10 @@ export default function Filter() {
                             <TuneIcon style={{ color: "white", fontSize: '15px' }} />
                         </div>
 
-                        <div style={{ background: "#4A4A4A", padding: '6px 8px', borderRadius: '50%', cursor: 'pointer' }}>
+                        <div style={{ background: "#4A4A4A", padding: '6px 8px', borderRadius: '50%', cursor: 'pointer' }}
+                        onClick={() => navigate('/chat/short')}>
                             <YoutubeSearchedForIcon style={{ color: "white", fontSize: '15px' }} />
+
                         </div>
 
                         <div style={{ background: "#4A4A4A", padding: '6px 8px', borderRadius: '50%', cursor: 'pointer' }}

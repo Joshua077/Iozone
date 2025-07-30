@@ -3,9 +3,24 @@ import './Login.css'
 import GoogleIcon from '@mui/icons-material/Google';
 import AppleIcon from '@mui/icons-material/Apple';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import { useEffect } from "react";
+import { useAuth } from "@clerk/clerk-react";
+import API, { setAuthToken } from "../../api/api";
+import { useNavigate } from "react-router-dom";
+
+
 
 
 export default function Login() {
+
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate("/signup");
+    };
+
+
+    const { getToken } = useAuth();
     return (
         <div
             className='login_container'
@@ -17,17 +32,17 @@ export default function Login() {
                     <h1 >Login</h1>
                 </div>
                 <div>
-                    <span>Don't have an account? </span> <span>Sign Up</span>
+                    <span>Don't have an account? </span> <span className='signupBtn' onClick={handleClick}>Sign Up</span>
                 </div>
                 <div>
                     <h2>Log in with your email or phone number</h2>
                 </div>
                 <div className='login_form'>
                     <form>
-                    <input
-               type='text'
-               className='field'
-                    />
+                        <input
+                            type='text'
+                            className='field'
+                        />
                         <button>Login</button>
                     </form>
                 </div>

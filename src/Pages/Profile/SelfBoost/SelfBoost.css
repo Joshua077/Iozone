@@ -70,3 +70,31 @@ flex-direction: column;
     border: 1px solid #917ca4;
     border-radius: 8px;
   }
+
+  .self_boost_text{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 25px;
+  }
+
+  .self_boost_text ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.self_boost_text li {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 14px;
+  gap: 10px;
+  font-weight: 400;
+}
+
+.self_boost_text_container h2{
+  display: flex;
+  overflow: hidden;
+}

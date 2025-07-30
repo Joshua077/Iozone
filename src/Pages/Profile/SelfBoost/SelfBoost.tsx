@@ -1,23 +1,25 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import Registration from '../../../Components/Modal/Registration'
 import PaymentCard from '../PaymentCard/PaymentCard'
 import './SelfBoost.css'
 
 export default function SelfBoost() {
- 
+
 
     return (
         <div className='self_boost_container1'>
             <div className='self_boost_content'>
                 <div className='self_boost_text_container'>
-                    <div>
-                        <h2 style={{fontSize:"13px", marginBottom:"12px"}}>Get Affection</h2>
-                    </div>
-
-                    <div>
-                        <p>You will be charged ₦6,000.00 every 6
-                            months. Cancel anytime</p>
-                    </div>
+                    <h2>Get Affections</h2>
+                   <div className='self_boost_text'>
+                     <ul>
+                        <li><span className="heart-icon">💜</span> Send targeted likes for a memorable first impression and genuine affection.</li>
+                        <li><span className="super-icon">🖤</span> Affections are super likes</li>
+                    </ul>
+                    <p className="footer-note">
+                        <span className="billing-icon">☰</span> You will be charged ₦6,000.00 every 6 months. Cancel anytime
+                    </p>
+                   </div>
                     <div>
 
                     </div>
@@ -91,7 +93,7 @@ export default function SelfBoost() {
                     </div>
                 </div>
             </div>
-            <PaymentCard/>
+            <PaymentCard />
         </div>
     )
 }
