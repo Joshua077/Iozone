@@ -9,9 +9,9 @@ interface ProtectedRouteProps {
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const { isSignedIn, isLoaded } = useAuth();
 
-  if (!isLoaded) return null; // or a loader
+  if (!isLoaded) return null;
 
   return isSignedIn ? children : <Navigate to="/login" />;
 };
 
-export default ProtectedRoute;
+export default ProtectedRoute;

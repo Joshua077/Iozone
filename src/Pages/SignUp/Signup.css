@@ -50,8 +50,18 @@
   background-color: #f0f0f0;
 }
 
-
 .logbtn {
   color: var(--primary-color);
   text-decoration: none;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  color: #421767;
+  font-size: 15px;
+  cursor: pointer;
 }
