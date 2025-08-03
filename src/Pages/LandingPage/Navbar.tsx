@@ -7,7 +7,7 @@ export default function Navbar() {
   const navigate = useNavigate()
 
   const handleSignup = () =>{
-      navigate('/onboard')
+      navigate('/signup')
   }
 
   const handleLogin = () =>{

@@ -1,16 +1,16 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "./Signup.css";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AppleIcon from "@mui/icons-material/Apple";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { VerificationCodeInput } from "./component/VerificationCodeInput";
-import { useSignUp, useAuth } from "@clerk/clerk-react";
-import { Link } from "react-router-dom";
+import { useSignUp, useAuth, useClerk } from "@clerk/clerk-react";
+
 
 export default function SignUp() {
   const { signUp } = useSignUp();
-
   const { getToken } = useAuth();
+  const { setActive } = useClerk();
 
   const navigate = useNavigate();
 
@@ -48,6 +48,48 @@ export default function SignUp() {
       alert("Signup failed. Please check your code or token.");
     }
   };
+
+  const handlePhoneSubmit = async () => {
+    if (!signUp) {
+      alert("Sign up is not ready yet.");
+      return;
+    }
+
+    try {
+      await signUp.create({ phoneNumber: formData.phone });
+      await signUp.preparePhoneNumberVerification({ strategy: "phone_code" });
+      nextStep();
+    } catch (err) {
+      console.error("Phone verification error:", err);
+      alert("Failed to send verification code.");
+    }
+  };
+
+
+  const handleCodeVerification = async () => {
+    if (!signUp) {
+      alert("Sign up is not ready yet.");
+      return;
+    }
+
+    try {
+      const result = await signUp.attemptPhoneNumberVerification({
+        code: formData.verificationCode,
+      });
+
+      if (result.status === "complete") {
+        await setActive({ session: result.createdSessionId });
+        nextStep();
+      } else {
+        alert("Verification not complete.");
+      }
+    } catch (err) {
+      console.error("Verification failed:", err);
+      alert("Invalid verification code.");
+    }
+  };
+
+
 
   const handleBoarding = () => {
     navigate("/onboard");
@@ -211,7 +253,7 @@ export default function SignUp() {
             <button
               className="nextBtn"
               disabled={!formData.phone}
-              onClick={nextStep}
+              onClick={handlePhoneSubmit}
               style={{
                 backgroundImage: formData.phone
                   ? "none"
@@ -290,7 +332,7 @@ export default function SignUp() {
             <button
               className="nextBtn"
               disabled={!formData.verificationCode}
-              onClick={nextStep}
+              onClick={handleCodeVerification}
               style={{
                 backgroundColor: "#181A87",
                 color: formData.phone ? "#FFFFFF" : "#B0A7C0",
