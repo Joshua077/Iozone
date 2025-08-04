@@ -7,95 +7,14 @@ import { VerificationCodeInput } from "./component/VerificationCodeInput";
 import { useSignUp, useAuth, useClerk } from "@clerk/clerk-react";
 
 
+
 export default function SignUp() {
   const { signUp } = useSignUp();
   const { getToken } = useAuth();
   const { setActive } = useClerk();
-
   const navigate = useNavigate();
 
-  const genderOptions = ["man", "woman", "others"];
-
-  const handleSubmit = async () => {
-    try {
-      const token = await getToken({ template: "integration_api" }); // Make sure this matches your backend setup
-      if (!token)
-        throw new Error("No token found. Ensure user session is active.");
-
-      const response = await fetch(
-        "https://staging.zanzino.com/api/v1/profile/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (!response.ok) {
-        const err = await response.json();
-        console.error("Backend error:", err);
-        throw new Error("Profile onboarding failed");
-      }
-
-      const result = await response.json();
-      console.log("Profile created:", result);
-      setCurrentStep(6); // Show completion
-    } catch (err) {
-      console.error(err);
-      alert("Signup failed. Please check your code or token.");
-    }
-  };
-
-  const handlePhoneSubmit = async () => {
-    if (!signUp) {
-      alert("Sign up is not ready yet.");
-      return;
-    }
-
-    try {
-      await signUp.create({ phoneNumber: formData.phone });
-      await signUp.preparePhoneNumberVerification({ strategy: "phone_code" });
-      nextStep();
-    } catch (err) {
-      console.error("Phone verification error:", err);
-      alert("Failed to send verification code.");
-    }
-  };
-
-
-  const handleCodeVerification = async () => {
-    if (!signUp) {
-      alert("Sign up is not ready yet.");
-      return;
-    }
-
-    try {
-      const result = await signUp.attemptPhoneNumberVerification({
-        code: formData.verificationCode,
-      });
-
-      if (result.status === "complete") {
-        await setActive({ session: result.createdSessionId });
-        nextStep();
-      } else {
-        alert("Verification not complete.");
-      }
-    } catch (err) {
-      console.error("Verification failed:", err);
-      alert("Invalid verification code.");
-    }
-  };
-
-
-
-  const handleBoarding = () => {
-    navigate("/onboard");
-  };
   const [currentStep, setCurrentStep] = useState(1);
-
   const [formData, setFormData] = useState({
     phone: "",
     verificationCode: "",
@@ -107,8 +26,94 @@ export default function SignUp() {
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
+  const handlePhoneSubmit = async () => {
+    if (!signUp) {
+      alert("Sign up not ready yet.");
+      return;
+    }
+    const normalized = formData.phone.startsWith("+")
+      ? formData.phone
+      : "+234" + formData.phone.replace(/^0/, "");
+    try {
+      await signUp.create({ phoneNumber: normalized });
+      await signUp.preparePhoneNumberVerification({ strategy: "phone_code" });
+      setCurrentStep(2);
+    } catch (err: any) {
+      console.error("Phone verification error:", err.errors ?? err.message ?? err);
+      const message = err?.errors?.[0]?.message ?? "Failed to send verification code.";
+      alert(message);
+    }
+
+  };
+
+
+  const handleCodeVerification = async () => {
+    if (!signUp) {
+      alert("Sign up not ready yet.");
+      return;
+    }
+
+    try {
+      const result = await signUp.attemptPhoneNumberVerification({
+        code: formData.verificationCode,
+      });
+
+      if (result.status === "complete" && result.createdSessionId) {
+        await setActive({ session: result.createdSessionId }); // ✅ FIXED: use setActive from useClerk
+        setCurrentStep(3);
+      } else {
+        alert("Verification did not complete.");
+      }
+    } catch (err: any) {
+      console.error("Verification failed:", err.errors ?? err.message ?? err);
+      alert("Invalid verification code.");
+    }
+  };
+
+  const handleProfileSubmit = async () => {
+    try {
+      const token = await getToken({ template: "integration_api" });
+      if (!token) throw new Error("No token found; ensure user is signed in.");
+      const payload = {
+        phone: formData.phone,
+        name: formData.name,
+        email: formData.email,
+        dob: formData.dob,
+        gender: formData.gender,
+        about: formData.about,
+      };
+      const res = await fetch("https://staging.zanzino.com/api/v1/profile/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        const errBody = await res.json();
+        console.error("Backend error:", errBody);
+        throw new Error("Profile onboarding failed.");
+      }
+      console.log("Profile created:", await res.json());
+      setCurrentStep(6);
+    } catch (err) {
+      console.error("Profile submission error:", err);
+      alert("Signup could not complete. Please try again.");
+    }
+  };
+
+
+
+
+
+
+  const handleBoarding = () => {
+    navigate("/onboard");
+  };
+
+
+
 
   const handleAboutChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -236,12 +241,14 @@ export default function SignUp() {
             <p style={{ marginTop: "20px", marginBottom: "20px" }}>
               Or sign up with phone number
             </p>
+            <div id="clerk-captcha"></div>
+
             <input
               type="tel"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="Phone Number"
+              placeholder="+2348123456789"
               className="inputField"
               style={{
                 width: "335px",
@@ -652,7 +659,7 @@ export default function SignUp() {
 
             <button
               className="nextBtn"
-              onClick={handleSubmit}
+              onClick={handleProfileSubmit}
               style={{
                 backgroundColor: "#181A87",
                 color: formData.phone ? "#FFFFFF" : "#B0A7C0",

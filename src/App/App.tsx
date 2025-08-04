@@ -27,8 +27,8 @@ const PUBLISHABLE_KEY =
 
 function App() {
   return (
-    <div className="App">
-      <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+      <div className="App">
         <BrowserRouter>
           <Routes>
             {/* Public Routes */}
@@ -112,8 +112,10 @@ function App() {
             />
           </Routes>
         </BrowserRouter>
-      </ClerkProvider>
-    </div>
+      </div>
+
+    </ClerkProvider>
+
   );
 }
 
